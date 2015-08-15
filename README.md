@@ -10,5 +10,5 @@ This is a simple script that takes input FLAC file(s) in a directory and creates
 
 I know my scripting practices do not follow any sort of guidelines. For the most part, these scripts are just slapped together with lots of duct tape keeping them from falling apart.
 
-If you have suggestions on better ways of making a task work or easier ways of structuring the code, please file a bug against the scipt in question with your suggestion.
+If you have suggestions on better ways of making a task work or easier ways of structuring the code, please file a bug against the script in question with your suggestion.
 
