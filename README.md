@@ -1,6 +1,6 @@
 # Welcome to my BASH-SCRIPTS Collection
 
-This repository contains some BASH scipts that I have made over the years. I have found them useful in my day to day operations and feel they are at a point where I can share them with the world. They may not be perfect, and they may not follow the BASH scripting directives, but they work for what I need them to do. They may be useful to you too.
+This repository contains some BASH scripts that I have made over the years. I have found them useful in my day to day operations and feel they are at a point where I can share them with the world. They may not be perfect, and they may not follow the BASH scripting directives, but they work for what I need them to do. They may be useful to you too.
 
 # flac2mp3.sh - FLAC to MP3 Converter
 
