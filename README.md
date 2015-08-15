@@ -6,6 +6,10 @@ This repository contains some BASH scipts that I have made over the years. I hav
 
 This is a simple script that takes input FLAC file(s) in a directory and creates output MP3 file(s). Commonly used to convert high quality lossless FLAC audio to high quality lossy MP3 audio for portable music players and devices that do not support the FLAC file format.
 
+# webaom.sh
+
+This is a simple script that downloads webaom.jnlp from static.anidb.net and runs the client locally. Since the script always downloads the webaom.jnlp file each time it is run, it will make sure you are running the latest version of the java client (even though it hasn't been updated in ages).
+
 # How can you help?
 
 I know my scripting practices do not follow any sort of guidelines. For the most part, these scripts are just slapped together with lots of duct tape keeping them from falling apart.
