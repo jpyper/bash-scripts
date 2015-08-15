@@ -148,7 +148,7 @@ function f2m_flac_to_mp3_conversion() {
 	filetotal=$(find . -name "*.[Ff][Ll][Aa][Cc]" | wc -l)
 	filecount="0"
 
-	for a in *.[Ff][Ll][Aa][Cc]; do
+	for a in ./*.[Ff][Ll][Aa][Cc]; do
 
 		# get flac file meta info
 #		filebase="$(echo "$a" | sed s/.flac//g)"
