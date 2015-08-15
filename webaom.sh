@@ -51,7 +51,7 @@ wgetbin="$(which wget)"
 ### MAGIC INGREDIENTS ###
 #########################
 
-function waom_test_util_requirements() {
+waom_test_util_requirements() {
 # test for external requirements to do the job
 
         echo "+---------------------------------+"
@@ -60,7 +60,7 @@ function waom_test_util_requirements() {
         echo
 
 	# check for java installation
-	if [ ! -f ${javabin} ]; then
+	if [ ! -f "${javabin}" ]; then
                 echo ":-( This script can not locate the 'java' binary."
                 echo "    Check the 'javabin' variable at the top of this script. Make sure it is pointing to the 'java' binary."
                 echo "    Install the 'openjdk-8-jre' package provided by your distribution, or"
@@ -73,7 +73,7 @@ function waom_test_util_requirements() {
 
 
 	# check for javaws installation
-	if [ ! -f ${javawsbin} ]; then
+	if [ ! -f "${javawsbin}" ]; then
                 echo ":-( This script can not locate the 'javaws' binary."
                 echo "    Check the 'javawsbin' variable at the top of this script. Make sure it is pointing to the 'javaws' binary."
                 echo "    Install the 'icedtea-netx' package provided by your distribution, or"
@@ -86,7 +86,7 @@ function waom_test_util_requirements() {
 
 
 	# check for wget installation
-	if [ ! -f ${wgetbin} ]; then
+	if [ ! -f "${wgetbin}" ]; then
                 echo ":-( This script can not locate the 'wget' binary."
                 echo "    Check the 'wgetbin' variable at the top of this script. Make sure it is pointing to the 'wget' binary."
                 echo "    Install the 'wget' package provided by your distribution, or"
@@ -100,19 +100,19 @@ function waom_test_util_requirements() {
 }
 
 
-function waom_check_output_directory() {
-# check for output directory
+waom_check_work_directory() {
+# check for work directory
 
-        echo "+-------------------------------+"
-        echo "| Checking for output directory |"
-        echo "+-------------------------------+"
+        echo "+-----------------------------+"
+        echo "| Checking for work directory |"
+        echo "+-----------------------------+"
         echo
 
-        if [ ! -d "${outdir}" ]; then
-                echo ":-( Can't find output directory:"
-                echo "      ${outdir}"
+        if [ ! -d "${workdir}" ]; then
+                echo ":-( Can't find work directory:"
+                echo "      ${workdir}"
                 echo ":-| Creating directory."
-                mkdir -p "${outdir}"
+                mkdir -p "${workdir}"
                 if [ ${?} -gt 0 ]; then
                         echo ":-( There was a problem creating the directory."
                         echo "    Make sure you have write permissions to the directory specified."
@@ -129,7 +129,7 @@ function waom_check_output_directory() {
 }
 
 
-function waom_download_run_webaom() {
+waom_download_run_webaom() {
 # try to download java webstart file and run it
 
 	echo "+--------------------------------------------------------+"
@@ -175,7 +175,7 @@ clear
 # display script header
 echo
 echo "+--------------------------------------------------"
-echo "| AniDB.net Java WebAOM (Anime-O-Matic) Downloader"
+echo "| AniDB Java WebAOM (Anime-O-Matic) Downloader"
 echo "| version: ${scriptversion} (${scriptlastedit})"
 echo "| by: ${scriptauthor}"
 echo "| web: ${scriptsite}"
@@ -184,8 +184,8 @@ echo
 # step 1: check for required possibly not installed by default binaries to operate script.
 waom_test_util_requirements
 
-# step 2: test for output directory. create if needed.
-waom_check_output_directory
+# step 2: test for work directory. create if needed.
+waom_check_work_directory
 
 # step 3: try to download .jnlp file and run it
 waom_download_run_webaom
