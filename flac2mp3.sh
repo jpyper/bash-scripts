@@ -1,6 +1,6 @@
 #! /bin/bash
 scriptversion="trunk"
-scriptlastedit="20150815"
+scriptlastedit="20150816"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -60,7 +60,7 @@ lameopts="--quiet -m j -q 0 -V 0 --vbr-new -T -c -o -p -b 32 --noreplaygain --ad
 ### MAGIC INGREDIENTS ###
 #########################
 
-function f2m_check_script_requirements() {
+f2m_check_script_requirements() {
 	# make sure we have the required, possibly not installed by default, utilities to do the job.
 
 	# check that flacbin points to a valid file
@@ -95,7 +95,7 @@ function f2m_check_script_requirements() {
 }
 
 
-function f2m_check_output_directory() {
+f2m_check_output_directory() {
 # check for output directory
 	echo "+-------------------------------+"
 	echo "| Checking for output directory |"
@@ -122,7 +122,7 @@ function f2m_check_output_directory() {
 }
 
 
-function f2m_test_directory_flac_files() {
+f2m_test_directory_flac_files() {
 	echo "+-------------------------------------------+"
 	echo "| Testing source FLAC files. Please wait... |"
 	echo "+-------------------------------------------+"
@@ -138,7 +138,7 @@ function f2m_test_directory_flac_files() {
 }
 
 
-function f2m_flac_to_mp3_conversion() {
+f2m_flac_to_mp3_conversion() {
 	echo "+----------------------------------------+"
 	echo "| Converting FLAC to MP3. Please wait... |"
 	echo "+----------------------------------------+"
@@ -179,7 +179,7 @@ function f2m_flac_to_mp3_conversion() {
 }
 
 
-function f2m_show_outdir_contents() {
+f2m_show_outdir_contents() {
 	echo "+--------------------------------------+"
 	echo "| Here are your fresh new MP3 files... |"
 	echo "+--------------------------------------+"
