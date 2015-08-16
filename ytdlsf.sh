@@ -59,8 +59,6 @@ arg1="$1"
 
 ytdl_check_requirements() {
 # check for required extrnal utilities and check command line options.
-	echo "${arg1}"
-	echo
 
 	# check command line parameters. no sense in parsing the rest if there's nothing here.
 	if [ ! "${arg1}" ]; then
