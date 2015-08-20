@@ -1,6 +1,6 @@
 #! /bin/bash
 scriptversion="trunk"
-scriptlastedit="20150816"
+scriptlastedit="20150820"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -211,11 +211,11 @@ echo
 # step 1: check for required possibly not installed by default binaries to operate script.
 f2m_check_script_requirements
 
-# step 2: test for output directory. create if needed.
-f2m_check_output_directory
-
-# step 3: test the integrity of flac file(s) in the directory. halt script operations if flac file errors are encountered.
+# step 2: test the integrity of flac file(s) in the directory. halt script operations if flac file errors are encountered.
 f2m_test_directory_flac_files
+
+# step 3: test for output directory. create if needed.
+f2m_check_output_directory
 
 # step 4: read flac file(s) to produce new mp3 file(s).
 f2m_flac_to_mp3_conversion
