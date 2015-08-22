@@ -1,6 +1,6 @@
 #! /bin/bash
 scriptversion="trunk"
-scriptlastedit="20150820"
+scriptlastedit="20150822"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -158,9 +158,10 @@ f2m_flac_to_mp3_conversion() {
 		filetrack="$(metaflac "${a}" --show-tag=TRACKNUMBER | sed s/.*=//g)"
 		filealbum="$(metaflac "${a}" --show-tag=ALBUM | sed s/.*=//g)"
 
-		# print some artist and album info
+		# print some artist and album info. only gets info from first file processed in the loop.
 		if [ ${filecount} -lt 1 ]; then
-			echo "ARTIST: ${fileartist}"
+			# i haven't figured out how to determine "various artists" yet.
+			#echo "ARTIST: ${fileartist}"
 			echo "ALBUM:  ${filealbum}"
 			echo
 		fi
