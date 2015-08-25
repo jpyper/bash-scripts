@@ -128,8 +128,7 @@ do
 
 	# get byte and human readable original file size
 	fileorigsizeb=$(ls -l "${a}" | cut -d " " -f 5)
-#	fileorigsizeh=$(ls -lh "${a}" | cut -d " " -f 5)
-	fileorigsizeh="$(echo "scale=2; ${fileorigsizeb}/1048576" | bc) MB"
+	fileorigsizeh="$(echo "scale=3; x=${fileorigsizeb} / 1048576; if(x<1) print 0; x" | bc) MB"
 	echo "ORIG: ${fileorigsizeb} (${fileorigsizeh})"
 
 	# compression command
@@ -137,8 +136,7 @@ do
 
 	# get byte and human readable compressed file size
 	filecompsizeb=$(ls -l "${fileorigname}.${compext}" | cut -d " " -f 5)
-#	filecompsizeh=$(ls -lh "${fileorigname}.${compext}" | cut -d " " -f 5)
-	filecompsizeh="$(echo "scale=2; ${filecompsizeb}/1048576" | bc) MB"
+	filecompsizeh="$(echo "scale=3; x=${filecompsizeb} / 1048576; if(x<1) print 0; x" | bc) MB"
 	echo "COMP: ${filecompsizeb} (${filecompsizeh})"
 #	echo "FILE SIZE: ${fileorigsizeb} (${fileorigsizeh}) --> ${filecompsizeb} (${filecompsizeh})"
 
@@ -154,7 +152,7 @@ echo; echo; echo
 # display some stats before script ends
 echo "Files Processed:         ${filetotal}"
 echo "Compression Method:      ${compext}"
-echo "Original File Space:     ${filetotalorigsizeb} ($(echo "scale=2; ${filetotalorigsizeb}/1048576" | bc) MB)"
-echo "Compressed File Space:   ${filetotalcompsizeb} ($(echo "scale=2; ${filetotalcompsizeb}/1048576" | bc) MB)"
+echo "Original File Space:     ${filetotalorigsizeb} ($(echo "scale=3; x=${filetotalorigsizeb} / 1048576; if(x<1) print 0; x" | bc) MB)"
+echo "Compressed File Space:   ${filetotalcompsizeb} ($(echo "scale=3; x=${filetotalcompsizeb} / 1048576; if(x<1) print 0; x" | bc) MB)"
 
 echo
