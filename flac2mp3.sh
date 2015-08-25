@@ -1,6 +1,6 @@
 #! /bin/bash
 scriptversion="trunk"
-scriptlastedit="20150822"
+scriptlastedit="20150825"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -27,8 +27,8 @@ scriptsite="https://github.com/jpyper/bash-scripts"
 ###############
 ### LICENSE ###
 ###############
-# This script is licensed under the Fair License.
-# Details here: http://opensource.org/licenses/Fair
+# This script is licensed under the MIT License.
+# Details here: http://opensource.org/licenses/MIT
 
 
 ############################
