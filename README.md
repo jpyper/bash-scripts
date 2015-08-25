@@ -5,6 +5,10 @@ This repository contains some BASH scripts that I have made over the years. I ha
 ### flac2mp3.sh - FLAC to MP3 Converter
 This is a simple script that takes input FLAC file(s) in a directory and creates output MP3 file(s). Commonly used to convert high quality lossless FLAC audio to high quality lossy MP3 audio for portable music players and devices that do not support the FLAC file format.
 
+### ifc.sh - Individual File Compressor
+This simple script compresses individual files with the same extension. It is useful for compressing emulator ROMs or PDFs.
+I was inspired to write this script based on a utility I used for Windows(tm) quite some time ago called ZipOne. It was/is a command line utility that was designed to do the same thing this script does.
+
 ### webaom.sh - AniDB WebAOM Java WebStart Downloader
 This is a simple script that downloads webaom.jnlp from static.anidb.net and runs the client locally. Since the script always downloads the webaom.jnlp file each time it is run, it will make sure you are running the latest version of the java client (even though it hasn't been updated in ages).
 Information about the AniDB WebAOM (Anime-O-Matic) can be found at: http://wiki.anidb.info/w/WebAOM
