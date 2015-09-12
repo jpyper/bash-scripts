@@ -9,7 +9,20 @@ scriptsite="https://github.com/jpyper/bash-scripts"
 #############
 ### ABOUT ###
 #############
-# This is a simple script to install/update/uninstall Google Web Fonts from GitHub.
+#  This is a simple script to install/update/uninstall Google Web Fonts from GitHub.
+
+#  More information about Google Web Fonts can be found at:
+#+ https://www.google.com/fonts
+
+#  I have only tested this script on the following Linux distributions:
+#+ Debian
+#+ Ubuntu
+#+ Manjaro
+#+ Fedora
+
+#  I would like to know if this script works on *BSD/*Solaris/Mac systems. Please
+#+ file a GitHub bug report with your findings, as I do not have these available
+#+ to do the tests myself.
 
 #  It is probably best to install the Google Web Fonts to a system-wide directory
 #+ so they may be used by all users on the system.
