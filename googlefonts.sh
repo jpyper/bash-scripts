@@ -9,9 +9,9 @@ scriptsite="https://github.com/jpyper/bash-scripts"
 #############
 ### ABOUT ###
 #############
-# This is a simple script to install/update/uninstall Google Fonts from GitHub.
+# This is a simple script to install/update/uninstall Google Web Fonts from GitHub.
 
-#  It is probably best to install the Google Fonts to a system-wide directory
+#  It is probably best to install the Google Web Fonts to a system-wide directory
 #+ so they may be used by all users on the system.
 
 #  All "system" options require superuser privileges.
@@ -99,7 +99,7 @@ gfInstallUser () {
 	if [ -d "${gfuser}/${gfdir}" ]; then
 		# user font directory exists
 		echo
-		echo "USER: Google Fonts is already installed."
+		echo "USER: Google Web Fonts is already installed."
 		echo "${gfuser}/${gfdir}"
 		echo
 		echo "USER: Installation aborted."
@@ -108,7 +108,7 @@ gfInstallUser () {
 	else
 		# create user font directory
 		echo
-		echo "USER: Creating directory for fonts."
+		echo "USER: Creating directory for Google Web Fonts."
 		echo "${gfuser}/${gfdir}"
 		mkdir -p "${gfuser}/${gfdir}"
 		echo
@@ -117,7 +117,7 @@ gfInstallUser () {
 		cd "${gfuser}"
 
 		# use git to download google font repository
-		echo "USER: Cloning Google Fonts from GitHub repository:"
+		echo "USER: Cloning Google Web Fonts from GitHub repository:"
 		echo "${gfghrepo}"
 		echo
 		${gitbin} clone ${gfghrepo}.git ${gfdir}
@@ -129,9 +129,9 @@ gfInstallUser () {
 		echo
 
 		# finish message
-		echo "USER: Google Fonts installation is complete."
+		echo "USER: Google Web Fonts installation is complete."
 		echo
-		echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+		echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 		echo
 	fi
 }
@@ -145,7 +145,7 @@ gfInstallSystem () {
 	if [ -d "${gfsys}/${gfdir}" ]; then
 		# system font directory exists
 		echo
-		echo "SYSTEM: Google Fonts is already installed."
+		echo "SYSTEM: Google Web Fonts is already installed."
 		echo "${gfsys}/${gfdir}"
 		echo
 		echo "SYSTEM: Installation aborted."
@@ -154,7 +154,7 @@ gfInstallSystem () {
 	else
 		# create system font directory
 		echo
-		echo "SYSTEM: Creating directory for fonts."
+		echo "SYSTEM: Creating directory for Google Web Fonts."
 		echo "${gfsys}/${gfdir}"
 		sudo mkdir -p "${gfsys}/${gfdir}"
 		echo
@@ -163,7 +163,7 @@ gfInstallSystem () {
 		cd "${gfsys}"
 
 		# use git to download google font repository
-		echo "SYSTEM: Cloning Google Fonts from GitHub repository:"
+		echo "SYSTEM: Cloning Google Web Fonts from GitHub repository:"
 		echo "${gfghrepo}"
 		echo
 		sudo ${gitbin} clone ${gfghrepo}.git ${gfdir}
@@ -175,9 +175,9 @@ gfInstallSystem () {
 		echo
 
 		# finish message
-		echo "SYSTEM: Google Fonts installation is complete."
+		echo "SYSTEM: Google Web Fonts installation is complete."
 		echo
-		echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+		echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 		echo
 	fi
 }
@@ -187,8 +187,8 @@ gfInstallHelp () {
 	echo
 	echo "install OPTIONS:"
 	echo
-	echo "googlefonts.sh install user	= Install Google Fonts to ${gfuser}/${gfdir}"
-	echo "googlefonts.sh install system	= Install Google Fonts to ${gfsys}/${gfdir}"
+	echo "googlefonts.sh install user	= Install Google Web Fonts to ${gfuser}/${gfdir}"
+	echo "googlefonts.sh install system	= Install Google Web Fonts to ${gfsys}/${gfdir}"
 	echo "googlefonts.sh install help	= this help screen"
 	echo
 	exit
@@ -210,7 +210,7 @@ gfUpdateUser () {
 		cd "${gfuser}/${gfdir}"
 
 		# update from repo
-		echo "USER: Checking for Google Font updates."
+		echo "USER: Checking for Google Web Font updates."
 		${gitbin} pull
 		echo
 
@@ -220,18 +220,18 @@ gfUpdateUser () {
 		echo
 
 		# finish message
-		echo "USER: Google Fonts update completed."
+		echo "USER: Google Web Fonts update completed."
 		echo
-		echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+		echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 		echo
 		exit
 	else
 		# display user directory not found message then quit
 		echo
-		echo "USER: Expected Google Fonts directory not found."
+		echo "USER: Expected Google Web Fonts directory not found."
 		echo "${gfsys}/${gfdir}"
 		echo
-		echo "USER: Google Fonts update not possible."
+		echo "USER: Google Web Fonts update not possible."
 		echo
 		exit
 	fi
@@ -249,7 +249,7 @@ gfUpdateSystem () {
 		cd "${gfsys}/${gfdir}"
 
 		# update from repo
-		echo "SYSTEM: Checking for Google Fonts updates."
+		echo "SYSTEM: Checking for Google Web Fonts updates."
 		sudo ${gitbin} pull
 		echo
 
@@ -259,18 +259,18 @@ gfUpdateSystem () {
 		echo
 
 		# finish message
-		echo "SYSTEM: Google Fonts update completed."
+		echo "SYSTEM: Google Web Fonts update completed."
 		echo
-		echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+		echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 		echo
 		exit
 	else
 		# display directory not found message then quit
 		echo
-		echo "SYSTEM: Expected Google Fonts directory not found."
+		echo "SYSTEM: Expected Google Web Fonts directory not found."
 		echo "${gfsys}/${gfdir}"
 		echo
-		echo "SYSTEM: Google Fonts update not possible."
+		echo "SYSTEM: Google Web Fonts update not possible."
 		echo
 		exit 1
 	fi
@@ -281,8 +281,8 @@ gfUpdateHelp () {
 	echo
 	echo "update OPTIONS:"
 	echo
-	echo "googlefonts.sh update user	= Update/Check Google Fonts in ${gfuser}/${gfdir}"
-	echo "googlefonts.sh update system	= Update/Check Google Fonts in ${gfsys}/${gfdir}"
+	echo "googlefonts.sh update user	= Update/Check Google Web Fonts in ${gfuser}/${gfdir}"
+	echo "googlefonts.sh update system	= Update/Check Google Web Fonts in ${gfsys}/${gfdir}"
 	echo "googlefonts.sh update help	= this help screen"
 	echo
 	exit
@@ -299,7 +299,7 @@ gfUninstallUser () {
 
 	if [ -d "${gfuser}/${gfdir}" ]; then
 		echo
-		echo "USER: Are you sure you want to remove Google Fonts?"
+		echo "USER: Are you sure you want to remove Google Web Fonts?"
 		echo "${gfuser}/${gfdir}"
 		echo "[y/n] "
 		read gfdeluserdir
@@ -307,7 +307,7 @@ gfUninstallUser () {
 			[Yy]|[Yy][Ee][Ss])
 				# delete user fonts
 				echo
-				echo "USER: Removing Google Fonts directory."
+				echo "USER: Removing Google Web Fonts directory."
 				rm -rf "${gfuser}/${gfdir}"
 				echo
 
@@ -317,16 +317,16 @@ gfUninstallUser () {
 				echo
 
 				# final message
-				echo "USER: Google Fonts uninstallation is complete."
+				echo "USER: Google Web Fonts uninstallation is complete."
 				echo
-				echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+				echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 				echo
 				;;
 
 			[Nn]|[Nn][Oo])
 				# abort the mission!
 				echo
-				echo "USER: Uninstallation action was not performed."
+				echo "USER: Google Web Fonts uninstall was not performed."
 				echo
 				;;
 
@@ -336,10 +336,10 @@ gfUninstallUser () {
 		esac
 		exit
 	else
-		echo "USER: Expected Google Fonts directory not found."
+		echo "USER: Expected Google Web Fonts directory not found."
 		echo "${gfuser}/${gfdir}"
 		echo
-		echo "USER: Google Fonts uninstall not possible."
+		echo "USER: Google Web Fonts uninstall not possible."
 		echo
 		exit
 	fi
@@ -353,7 +353,7 @@ gfUninstallSystem () {
 
 	if [ -d "${gfsys}/${gfdir}" ]; then
 		echo
-		echo "SYSTEM: Are you sure you want to remove Google Fonts?"
+		echo "SYSTEM: Are you sure you want to remove Google Web Fonts?"
 		echo "${gfsys}/${gfdir}"
 		echo "[y/n] "
 		read gfdelsysdir
@@ -361,7 +361,7 @@ gfUninstallSystem () {
 			[Yy]|[Yy][Ee][Ss])
 				# delete system fonts
 				echo
-				echo "SYSTEM: Removing Google Fonts directory."
+				echo "SYSTEM: Removing Google Web Fonts directory."
 				sudo rm -rf "${gfsys}/${gfdir}"
 				echo
 
@@ -371,16 +371,16 @@ gfUninstallSystem () {
 				echo
 
 				# final message
-				echo "SYSTEM: Google Fonts uninstallation is complete."
+				echo "SYSTEM: Google Web Fonts uninstallation is complete."
 				echo
-				echo "You may need to LOGOUT of your session and LOGIN again for Google Fonts to be usable."
+				echo "You may need to LOGOUT of your session and LOGIN again for Google Web Fonts to be usable."
 				echo
 				;;
 
 			[Nn]|[Nn][Oo])
 				# abort the mission!
 				echo
-				echo "SYSTEM: Uninstallation action was not performed."
+				echo "SYSTEM: Google Web Fonts uninstall was not performed."
 				echo
 				;;
 
@@ -390,10 +390,10 @@ gfUninstallSystem () {
 		esac
 		exit
 	else
-		echo "SYSTEM: Expected Google Fonts directory not found."
+		echo "SYSTEM: Expected Google Web Fonts directory not found."
 		echo "${gfsys}/${gfdir}"
 		echo
-		echo "SYSTEM: Google Fonts uninstall not possible."
+		echo "SYSTEM: Google Web Fonts uninstall not possible."
 		echo
 		exit
 	fi
@@ -404,8 +404,8 @@ gfUninstallHelp () {
 	echo
 	echo "uninstall OPTIONS:"
 	echo
-	echo "googlefonts.sh uninstall user	= Uninstall Google Fonts from ${gfuser}/${gfdir}"
-	echo "googlefonts.sh uninstall system	= Uninstall Google Fonts from ${gfsys}/${gfdir}"
+	echo "googlefonts.sh uninstall user	= Uninstall Google Web Fonts from ${gfuser}/${gfdir}"
+	echo "googlefonts.sh uninstall system	= Uninstall Google Web Fonts from ${gfsys}/${gfdir}"
 	echo "googlefonts.sh uninstall help	= this help screen"
 	echo
 	exit
@@ -419,16 +419,16 @@ gfHelp () {
 	echo
 	echo "ACTIONS and their OPTIONS:"
 	echo
-	echo "googlefonts.sh install user	= Install Google Fonts to ${gfuser}/${gfdir}"
-	echo "googlefonts.sh install system	= Install Google Fonts to ${gfsys}/${gfdir}"
+	echo "googlefonts.sh install user	= Install Google Web Fonts to ${gfuser}/${gfdir}"
+	echo "googlefonts.sh install system	= Install Google Web Fonts to ${gfsys}/${gfdir}"
 	echo "googlefonts.sh install help	= install options help screen"
 	echo
-	echo "googlefonts.sh update user	= Update/Check Google Fonts in ${gfuser}/${gfdir}"
-	echo "googlefonts.sh update system	= Update/Check Google Fonts in ${gfsys}/${gfdir}"
+	echo "googlefonts.sh update user	= Update/Check Google Web Fonts in ${gfuser}/${gfdir}"
+	echo "googlefonts.sh update system	= Update/Check Google Web Fonts in ${gfsys}/${gfdir}"
 	echo "googlefonts.sh update help	= update options help screen"
 	echo
-	echo "googlefonts.sh uninstall user	= Uninstall Google Fonts from ${gfuser}/${gfdir}"
-	echo "googlefonts.sh uninstall system	= Uninstall Google Fonts from ${gfsys}/${gfdir}"
+	echo "googlefonts.sh uninstall user	= Uninstall Google Web Fonts from ${gfuser}/${gfdir}"
+	echo "googlefonts.sh uninstall system	= Uninstall Google Web Fonts from ${gfsys}/${gfdir}"
 	echo "googlefonts.sh uninstall help	= uninstall options help screen"
 	echo
 	echo "googlefonts.sh help		= this help screen"
@@ -451,7 +451,7 @@ clear
 # display script header
 echo
 echo "+-----------------------------------------------"
-echo "| Google Fonts Manager"
+echo "| Google Web Fonts Manager"
 echo "| version: ${scriptversion} (${scriptlastedit})"
 echo "| by: ${scriptauthor}"
 echo "| web: ${scriptsite}"
