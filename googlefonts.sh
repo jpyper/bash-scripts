@@ -1,6 +1,6 @@
 #!/bin/bash
 scriptversion="trunk"
-scriptlastedit="20150912"
+scriptlastedit="20150915"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -14,11 +14,13 @@ scriptsite="https://github.com/jpyper/bash-scripts"
 #  More information about Google Web Fonts can be found at:
 #+ https://www.google.com/fonts
 
-#  I have only tested this script on the following Linux distributions:
+#  My personal tests on the following Linux distributions:
 #+ Debian
 #+ Ubuntu
-#+ Manjaro
 #+ Fedora
+#+
+#+ Testing not done by me:
+#+ Manjaro	(David Kasurak) - Needs to be in /usr/share/fonts
 
 #  I would like to know if this script works on *BSD/*Solaris/Mac systems. Please
 #+ file a GitHub bug report with your findings, as I do not have these available
@@ -55,7 +57,7 @@ scriptsite="https://github.com/jpyper/bash-scripts"
 gfuser="${HOME}/.fonts"
 
 # system-wide directory
-gfsys="/usr/local/share/fonts"
+gfsys="/usr/share/fonts"
 
 # font directory name
 gfdir="google-fonts"
