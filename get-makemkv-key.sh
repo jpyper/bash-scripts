@@ -37,8 +37,7 @@ sedbin="$(type -P sed)"
 #####################
 # 20200616:
 #   - removed occurances of using 'which' to find commands
-#   + use BASH's built-in 'type -P' to find commands, faster,
-#       don't have to create a sub shell to run external command
+#   + use BASH's built-in 'type -P' to find commands faster
 #   + add BASH version check to DEPENDENCIES CHECK section
 #   + add MIT license
 #   + add this CHANGELOG section
