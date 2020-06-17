@@ -1,46 +1,70 @@
 #!/usr/bin/env bash
 scriptversion="trunk"
-scriptlastedit="20200615"
+scriptlastedit="20200616"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
 
-
-
-# quick way to get the most current MakeMKV registration key while it is still in beta (forever?).
+#################
+### [ ABOUT ] ###
+#################
+# -=[ MAKEMKV BETA REGISTRATION KEY RETRIEVER ]=-
+#
+# Quick script to get the most current MakeMKV registration key while it is still in beta (forever?).
+#
+# MakeMKV seems to be in a forever free beta (but that could change at any time), I highly recommend
+# purchasing a lifetime registration code for the reasonably valued cost of $50 USD.
+# https://www.makemkv.com/buy/
+#####################################################################################################
 
 
 ########################
 ### [ USER OPTIONS ] ###
 ########################
-
 # url to forum post where makemkv key is posted
 keypage="https://www.makemkv.com/forum/viewtopic.php?f=5&t=1053"
-
-# we assume the 'which' is included with the base system at install time. if not, install it, type 'which which' and change the 'whichbin' variable below.
-# on manjaro: core/which, binary located at /usr/bin/which
-# on debian: debianutils, binary located at /bin/which
-# on ubuntu: debianutils, binary located at /bin/which
-whichbin="/usr/bin/which"
-
 # where is the 'curl' binary
-curlbin="$(${whichbin} curl)"
-
+curlbin="$(type -P curl)"
 # where is the 'grep' binary
-grepbin="$(${whichbin} grep)"
-
+grepbin="$(type -P grep)"
 # where is the 'sed' binary
-sedbin="$(${whichbin} sed)"
-
+sedbin="$(type -P sed)"
 #####################################################################################################
 
 
+#####################
+### [ CHANGELOG ] ###
+#####################
+# 20200616:
+#   - removed occurances of using 'which' to find commands
+#   + use BASH's built-in 'type -P' to find commands, faster,
+#       don't have to create a sub shell to run external command
+#   + add BASH version check to DEPENDENCIES CHECK section
+#   + add MIT license
+#   + add this CHANGELOG section
+#
+# 20200615:
+#   + initial release
+#####################################################################################################
 
 
+###################
+### [ LICENSE ] ###
+###################
+# This script is licensed under the MIT License.
+# Details here: http://opensource.org/licenses/MIT
+#####################################################################################################
 
-##################################
-### [ CHECK FOR DEPENDENCIES ] ###
-##################################
+
+##############################
+### [ DEPENDENCIES CHECK ] ###
+##############################
+
+# check BASH version. this script needs version 4.0 or higher to use 'type -P' to find files.
+if [[ "$(echo "${BASH_VERSION}" | ${sedbin} -e 's/\..*$//')" -lt "4" ]]; then
+    echo "[E]: Script requires BASH version 4.0 or higher to work."
+    exit
+fi
 
 # check for 'curl' binary
 if [[ ! -f "${curlbin}" ]]; then
@@ -91,7 +115,7 @@ clear
 # display script header
 echo
 echo "+-----------------------------------------------"
-echo "| MakeMKV Beta Registration Key"
+echo "| MakeMKV Beta Registration Key Retriever"
 echo "| version: ${scriptversion} (${scriptlastedit})"
 echo "| by: ${scriptauthor}"
 echo "| web: ${scriptsite}"
