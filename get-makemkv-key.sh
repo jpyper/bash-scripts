@@ -40,7 +40,7 @@ sedbin="$(type -P sed)"
 #   ~ changed double brackets to single brackets in if statements for POSIX compliance
 #   + added a couple of double quotes around a few variables for POSIX compliance
 #   + added ${keypage} to the ${makemkv_key_forum_post} because I forgot I had the actual url in there...oops
-#   - removed BASH version check, since scipt no longer targets BASH for its shell
+#   - removed BASH version check, since script no longer targets BASH for its shell
 # 20200616:
 #   - removed occurances of using 'which' to find commands
 #   + use BASH's built-in 'type -P' to find commands faster
@@ -63,12 +63,6 @@ sedbin="$(type -P sed)"
 ##############################
 ### [ DEPENDENCIES CHECK ] ###
 ##############################
-
-# check BASH version. this script needs version 4.0 or higher to use 'type -P' to find files.
-if [ "$(echo "${BASH_VERSION}" | ${sedbin} -e 's/\..*$//')" -lt "4" ]; then
-    echo "[E]: Script requires BASH version 4.0 or higher to work."
-    exit
-fi
 
 # check for 'curl' binary
 if [ ! -f "${curlbin}" ]; then
