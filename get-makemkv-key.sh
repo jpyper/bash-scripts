@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 scriptversion="trunk"
-scriptlastedit="20200616"
+scriptlastedit="20200617"
 scriptauthor="John Pyper"
 scriptsite="https://github.com/jpyper/bash-scripts"
 
@@ -35,13 +35,15 @@ sedbin="$(type -P sed)"
 #####################
 ### [ CHANGELOG ] ###
 #####################
+# 20200617:
+#   ~ changed double brackets to single brackets in if statements for POSIX compliance
+#   + added a couple of double quotes around a few variables for POSIX compliance
 # 20200616:
 #   - removed occurances of using 'which' to find commands
 #   + use BASH's built-in 'type -P' to find commands faster
 #   + add BASH version check to DEPENDENCIES CHECK section
 #   + add MIT license
 #   + add this CHANGELOG section
-#
 # 20200615:
 #   + initial release
 #####################################################################################################
@@ -60,13 +62,13 @@ sedbin="$(type -P sed)"
 ##############################
 
 # check BASH version. this script needs version 4.0 or higher to use 'type -P' to find files.
-if [[ "$(echo "${BASH_VERSION}" | ${sedbin} -e 's/\..*$//')" -lt "4" ]]; then
+if [ "$(echo "${BASH_VERSION}" | ${sedbin} -e 's/\..*$//')" -lt "4" ]; then
     echo "[E]: Script requires BASH version 4.0 or higher to work."
     exit
 fi
 
 # check for 'curl' binary
-if [[ ! -f "${curlbin}" ]]; then
+if [ ! -f "${curlbin}" ]; then
 	echo "[E]: curl binary not found."
 	echo "[E]: the 'curlbin' variable at the top of this script"
 	echo "[E]: points to: ${curlbin}"
@@ -77,7 +79,7 @@ if [[ ! -f "${curlbin}" ]]; then
 fi
 
 # check for 'grep' binary
-if [[ ! -f "${grepbin}" ]]; then
+if [ ! -f "${grepbin}" ]; then
 	echo "[E]: grep binary not found."
 	echo "[E]: the 'grepbin' variable at the top of this script"
 	echo "[E]: points to: ${grepbin}"
@@ -88,7 +90,7 @@ if [[ ! -f "${grepbin}" ]]; then
 fi
 
 # check for 'sed' binary
-if [[ ! -f "${sedbin}" ]]; then
+if [ ! -f "${sedbin}" ]; then
 	echo "[E]: sed binary not found."
 	echo "[E]: the 'sedbin' variable at the top of this script"
 	echo "[E]: points to: ${sedbin}"
@@ -127,16 +129,16 @@ echo
 echo "---------------------------------------------------------------------------------------"
 
 # get page contents and store it all in a variable (no external files needed)
-makemkv_key_forum_post="$(curl --silent "https://www.makemkv.com/forum/viewtopic.php?f=5&t=1053")"
+makemkv_key_forum_post="$(curl --silent "${keypage}")"
 
 # weed out the registration code and save it in a variable
-makemkv_reg_key="$(echo ${makemkv_key_forum_post} | ${grepbin} "code>T-" | ${sedbin} -e 's/.*<pre><code>//' -e 's/<.*$//')"
+makemkv_reg_key="$(echo "${makemkv_key_forum_post}" | ${grepbin} "code>T-" | ${sedbin} -e 's/.*<pre><code>//' -e 's/<.*$//')"
 
 # display registration code
 echo "Registration code: ${makemkv_reg_key}"
 
 # weed out the expiration date and save it in a variable
-makemkv_reg_date="$(echo ${makemkv_key_forum_post} | ${sedbin} -e 's/^.*valid until //' -e 's/\..*$//')"
+makemkv_reg_date="$(echo "${makemkv_key_forum_post}" | ${sedbin} -e 's/^.*valid until //' -e 's/\..*$//')"
 
 # display expiration date
 echo " Code Valid Until: ${makemkv_reg_date}"
