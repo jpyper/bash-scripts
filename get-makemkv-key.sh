@@ -36,8 +36,11 @@ sedbin="$(type -P sed)"
 ### [ CHANGELOG ] ###
 #####################
 # 20200617:
+#   ~ changed shebang at top of script from "/usr/bin/env bash" to "/bin/sh" for more compatibility
 #   ~ changed double brackets to single brackets in if statements for POSIX compliance
 #   + added a couple of double quotes around a few variables for POSIX compliance
+#   + added ${keypage} to the ${makemkv_key_forum_post} because I forgot I had the actual url in there...oops
+#   - removed BASH version check, since scipt no longer targets BASH for its shell
 # 20200616:
 #   - removed occurances of using 'which' to find commands
 #   + use BASH's built-in 'type -P' to find commands faster
